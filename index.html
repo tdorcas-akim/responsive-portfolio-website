@@ -9,10 +9,16 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
+<<<<<<< HEAD
             <div class="logo">Portfolio</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+=======
+            <!--<div class="logo">Portfolio</div>-->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+>>>>>>> 6a97db54688d25184f515a6d3d9799700190a187
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -28,6 +34,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
+<<<<<<< HEAD
             <h1>Hello, Welcome to my Portfolio</h1>
             <p>Passionate Computer Science student learning to build amazing web experiences</p>
             <a href="#about" class="btn">Get to Know Me</a>
@@ -156,13 +163,168 @@
                     <div>
                         <h4>LinkedIn</h4>
                         <p>Tabitha Dorcas Akimana</p>
+            <h1>Hello, Welcome to my portfolio</h1>
+            <p class="subtitle">Passionate Computer Science Student | Building Tomorrow's Digital Solutions</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Problem-Solving</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag"></span>
+                        <span class="skill-tag">Empathy</span>
+                        <span class="skill-tag">Curiosity</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>                 
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript(Learning)</span>
+                        <span class="skill-tag">Git</span>
+>>>>>>> 6a97db54688d25184f515a6d3d9799700190a187
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+<<<<<<< HEAD
     <div id="projectModal" class="modal">
+=======
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bachelor's in Software Engineering</h3>
+                        <p class="date">2024 - 2028 (Expected)</p>
+                        <p>Currently pursuing a comprehensive degree in Software Engineering, focusing on software development, algorithms, and modern programming practices. Maintaining strong academic performance while building practical skills through coursework and personal projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Learning Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Self-Directed Learning</h3>
+                        <p class="date">2024 - Present</p>
+                        <p>Actively developing programming skills through online courses, coding challenges, and hands-on projects. Focus on web development fundamentals and building a strong foundation in computer science principles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Academic Projects</h3>
+                        <p class="date">2024 - Present</p>
+                        <p>Collaborating on university assignments and group projects, developing teamwork skills while applying theoretical knowledge to practical programming challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-slider">
+                <div class="slider-container" id="slider-container">
+                    <div class="project-slide">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive portfolio website built from scratch using HTML, CSS, and JavaScript. Features interactive elements, smooth animations, and mobile-first design principles.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <button class="cta-button" onclick="openModal('project1')">Learn More</button>
+                    </div>
+                    <div class="project-slide">
+                        <h3>Python Learning Scripts</h3>
+                        <p>Collection of Python scripts demonstrating fundamental programming concepts including data structures, algorithms, and problem-solving techniques learned during coursework.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Data Structures</span>
+                        </div>
+                        <button class="cta-button" onclick="openModal('project2')">Learn More</button>
+                    </div>
+                    <div class="project-slide">
+                        <h3>Git Version Control Practice</h3>
+                        <p>Hands-on experience with Git version control system, including repository management, branching strategies, and collaborative development workflows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Version Control</span>
+                        </div>
+                        <button class="cta-button" onclick="openModal('project3')">Learn More</button>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn" onclick="previousSlide()">Previous</button>
+                    <button class="slider-btn" onclick="nextSlide()">Next</button>
+                </div>
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error" id="name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="email-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <div class="error" id="subject-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <div class="error" id="message-error"></div>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+>>>>>>> 6a97db54688d25184f515a6d3d9799700190a187
         <div class="modal-content">
             <span class="close">&times;</span>
             <div id="modalContent"></div>
