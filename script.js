@@ -1,63 +1,25 @@
+       // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
-    
-        // Navigation functionality
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const navbar = document.getElementById('navbar');
-
-        // Toggle mobile menu
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
         // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Active nav link highlighting
-        const sections = document.querySelectorAll('section');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
 
         // Smooth scrolling for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
@@ -65,183 +27,7 @@
             });
         });
 
-        // Project slider functionality
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.project-slide');
-        const dots = document.querySelectorAll('.dot');
-        const sliderContainer = document.getElementById('slider-container');
-
-        function showSlide(index) {
-            currentSlideIndex = index;
-            const translateX = -index * 100;
-            sliderContainer.style.transform = `translateX(${translateX}%)`;
-            
-            // Update dots
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            const nextIndex = (currentSlideIndex + 1) % slides.length;
-            showSlide(nextIndex);
-        }
-
-        function previousSlide() {
-            const prevIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-            showSlide(prevIndex);
-        }
-
-        function currentSlide(index) {
-            showSlide(index - 1);
-        }
-
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Form validation
-        const contactForm = document.getElementById('contact-form');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Clear previous errors
-            const errorElements = document.querySelectorAll('.error');
-            errorElements.forEach(error => error.textContent = '');
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name').trim();
-            const email = formData.get('email').trim();
-            const subject = formData.get('subject').trim();
-            const message = formData.get('message').trim();
-            
-            let isValid = true;
-            
-            // Validate name
-            if (name.length < 2) {
-                document.getElementById('name-error').textContent = 'Name must be at least 2 characters long';
-                isValid = false;
-            }
-            
-            // Validate email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('email-error').textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
-            
-            // Validate subject
-            if (subject.length < 5) {
-                document.getElementById('subject-error').textContent = 'Subject must be at least 5 characters long';
-                isValid = false;
-            }
-            
-            // Validate message
-            if (message.length < 10) {
-                document.getElementById('message-error').textContent = 'Message must be at least 10 characters long';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Show success modal
-                openModal('contact-success');
-                contactForm.reset();
-            }
-        });
-
-        // Modal functionality
-        const modal = document.getElementById('modal');
-        const modalBody = document.getElementById('modal-body');
-        const closeBtn = document.querySelector('.close');
-
-        function openModal(type) {
-            let content = '';
-            
-            switch(type) {
-                case 'project1':
-                    content = `
-                        <h2>Personal Portfolio Website</h2>
-                        <p>This portfolio website showcases my growing skills in web development. Built entirely from scratch without any frameworks, it demonstrates my understanding of responsive design, CSS animations, and interactive JavaScript features.</p>
-                        <h3>Key Features:</h3>
-                        <ul>
-                            <li>Fully responsive design that works on all devices</li>
-                            <li>Interactive navigation with smooth scrolling</li>
-                            <li>CSS animations and hover effects</li>
-                            <li>JavaScript form validation</li>
-                            <li>Image slider with navigation controls</li>
-                            <li>Modal dialogs for enhanced user experience</li>
-                        </ul>
-                        <p>This project represents my commitment to learning web development best practices and creating engaging user experiences.</p>
-                    `;
-                    break;
-                case 'project2':
-                    content = `
-                        <h2>Python Learning Scripts</h2>
-                        <p>A comprehensive collection of Python scripts that demonstrate my progress in learning programming fundamentals and computer science concepts.</p>
-                        <h3>What I've Built:</h3>
-                        <ul>
-                            <li>Data structure implementations (lists, dictionaries, sets)</li>
-                            <li>Algorithm practice (sorting, searching)</li>
-                            <li>Object-oriented programming examples</li>
-                            <li>File handling and data processing scripts</li>
-                            <li>Problem-solving exercises from coursework</li>
-                        </ul>
-                        <p>These scripts showcase my analytical thinking and problem-solving approach to programming challenges.</p>
-                    `;
-                    break;
-                case 'project3':
-                    content = `
-                        <h2>Git Version Control Practice</h2>
-                        <p>Hands-on experience with Git and GitHub, essential tools for modern software development and collaboration.</p>
-                        <h3>Skills Developed:</h3>
-                        <ul>
-                            <li>Repository creation and management</li>
-                            <li>Branching and merging strategies</li>
-                            <li>Commit best practices and meaningful messages</li>
-                            <li>Collaborative workflows with pull requests</li>
-                            <li>Issue tracking and project management</li>
-                        </ul>
-                        <p>Understanding version control is crucial for any developer, and I've made it a priority to master these fundamental tools.</p>
-                    `;
-                    break;
-                case 'contact-success':
-                    content = `
-                        <h2>Message Sent Successfully!</h2>
-                        <p>Thank you for reaching out! I appreciate your interest and will get back to you as soon as possible.</p>
-                        <p>In the meantime, feel free to connect with me on social media or check out my projects on GitHub.</p>
-                    `;
-                    break;
-                default:
-                    content = '<h2>Content not available</h2>';
-            }
-            
-            modalBody.innerHTML = content;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        closeBtn.addEventListener('click', closeModal);
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Escape key to close modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
-                closeModal();
-            }
-        });
-
-        // Intersection Observer for scroll animations
+        // Fade in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -250,134 +36,214 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe elements for scroll animations
-        const animateElements = document.querySelectorAll('.skill-category, .timeline-item, .contact-form');
-        animateElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Add loading animation to form submission
-        const submitBtn = document.querySelector('.submit-btn');
-        const originalBtnText = submitBtn.textContent;
-
-        contactForm.addEventListener('submit', () => {
-            if (contactForm.checkValidity()) {
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalBtnText;
-                    submitBtn.disabled = false;
-                }, 2000);
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
             }
         });
 
-        // Add typing effect to hero subtitle
-        const subtitle = document.querySelector('.hero .subtitle');
-        const subtitleText = subtitle.textContent;
-        subtitle.textContent = '';
+        // Modal functionality
+        const modal = document.getElementById('projectModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeBtn = document.querySelector('.close');
 
-        function typeText(element, text, delay = 50) {
-            let i = 0;
-            const timer = setInterval(() => {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(timer);
-                }
-            }, delay);
+        const projectDetails = {
+            project1: {
+                title: 'Personal Portfolio',
+                description: 'This responsive portfolio website was built from scratch using pure HTML, CSS, and JavaScript. It features a mobile-first design approach, smooth animations, and interactive elements like modals and form validation.',
+                features: ['Fully responsive design', 'Smooth scrolling navigation', 'Form validation', 'Modal windows', 'CSS animations', 'Cross-browser compatibility'],
+                challenges: 'The main challenge was creating a responsive design without using any CSS frameworks, which required careful planning of media queries and flexible layouts.',
+                learned: 'This project helped me understand the fundamentals of responsive web design and the importance of semantic HTML structure.'
+            },
+            project2: {
+                title: 'Simple Calculator',
+                description: 'A functional web-based calculator that performs basic arithmetic operations. Features a clean, intuitive interface with keyboard support for enhanced user experience.',
+                features: ['Basic arithmetic operations', 'Keyboard input support', 'Clear and delete functions', 'Responsive button layout', 'Error handling'],
+                challenges: 'Handling edge cases like division by zero and maintaining accurate floating-point calculations required careful consideration.',
+                learned: 'This project taught me about event handling, DOM manipulation, and the importance of user input validation.'
+            },
+            project3: {
+                title: 'Python Learning Scripts',
+                description: 'A collection of Python scripts created during my learning journey, covering topics from basic syntax to more complex algorithms and data structures.',
+                features: ['File I/O operations', 'Data structure implementations', 'Algorithm practice', 'Code documentation', 'Version control with Git'],
+                challenges: 'Understanding object-oriented programming concepts and implementing efficient algorithms were the main learning curves.',
+                learned: 'These projects solidified my understanding of programming fundamentals and best practices in code organization.'
+            }
+        };
+
+        function openModal(projectId) {
+            const project = projectDetails[projectId];
+            modalContent.innerHTML = `
+                <h2>${project.title}</h2>
+                <p>${project.description}</p>
+                <h3>Key Features:</h3>
+                <ul>
+                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <h3>Challenges:</h3>
+                <p>${project.challenges}</p>
+                <h3>What I Learned:</h3>
+                <p>${project.learned}</p>
+            `;
+            modal.classList.add('show');
         }
 
-        // Start typing effect after hero animation
-        setTimeout(() => {
-            typeText(subtitle, subtitleText, 30);
-        }, 1500);
-
-        // Add skill tag hover effects
-        const skillTags = document.querySelectorAll('.skill-tag');
-        skillTags.forEach(tag => {
-            tag.addEventListener('mouseenter', () => {
-                tag.style.transform = 'scale(1.05)';
-            });
-            
-            tag.addEventListener('mouseleave', () => {
-                tag.style.transform = 'scale(1)';
-            });
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
         });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
             }
         });
 
-        // Add scroll-to-top functionality
-        const scrollToTop = document.createElement('button');
-        scrollToTop.innerHTML = '↑';
-        scrollToTop.className = 'scroll-to-top';
-        scrollToTop.style.cssText = `
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        `;
-
-        document.body.appendChild(scrollToTop);
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTop.style.opacity = '1';
-                scrollToTop.style.transform = 'scale(1)';
-            } else {
-                scrollToTop.style.opacity = '0';
-                scrollToTop.style.transform = 'scale(0.8)';
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.error').forEach(error => error.textContent = '');
+            
+            // Name validation
+            if (name.length < 2) {
+                document.getElementById('nameError').textContent = 'Name must be at least 2 characters long';
+                isValid = false;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            
+            // Message validation
+            if (message.length < 10) {
+                document.getElementById('messageError').textContent = 'Message must be at least 10 characters long';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
             }
         });
 
-        scrollToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Add input event listeners for real-time validation
+        document.getElementById('name').addEventListener('input', function() {
+            const nameError = document.getElementById('nameError');
+            if (this.value.trim().length >= 2) {
+                nameError.textContent = '';
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(this.value.trim())) {
+                emailError.textContent = '';
+            }
+        });
+
+        document.getElementById('message').addEventListener('input', function() {
+            const messageError = document.getElementById('messageError');
+            if (this.value.trim().length >= 10) {
+                messageError.textContent = '';
+            }
+        });
+
+        // Skill tags hover effect
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.05)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show first slide
-            showSlide(0);
+        // Project cards hover effect
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
             
-            // Add entrance animations with delay
-            const elements = document.querySelectorAll('.skill-category, .timeline-content');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 100);
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
-   
+
+        // Add typing effect to hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            setTimeout(() => {
+                typeWriter(heroTitle, originalText, 100);
+            }, 500);
+        });
+
+        // Add scroll progress indicator
+        const createScrollIndicator = () => {
+            const scrollIndicator = document.createElement('div');
+            scrollIndicator.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(90deg, #667eea, #764ba2);
+                z-index: 9999;
+                transition: width 0.3s ease;
+            `;
+            document.body.appendChild(scrollIndicator);
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.offsetHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollIndicator.style.width = scrollPercent + '%';
+            });
+        };
+
+        createScrollIndicator();
