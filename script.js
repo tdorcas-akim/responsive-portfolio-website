@@ -58,7 +58,7 @@
         });
 
         // Modal functionality
-        const modal = document.getElementById('projectModal');
+        const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modalContent');
         const closeBtn = document.querySelector('.close');
 
@@ -113,49 +113,8 @@
             }
         });
 
-        /*// Form validation
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            let isValid = true;
-            
-            // Clear previous errors
-            document.querySelectorAll('.error').forEach(error => error.textContent = '');
-            
-            // Name validation
-            if (name.length < 2) {
-                document.getElementById('nameError').textContent = 'Name must be at least 2 characters long';
-                isValid = false;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('emailError').textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
-            
-            // Message validation
-            if (message.length < 10) {
-                document.getElementById('messageError').textContent = 'Message must be at least 10 characters long';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Show success message
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            }
-        });*/
-
         // Add input event listeners for real-time validation
-        document.getElementById('name').addEventListener('input', function() {
+        /*document.getElementById('name').addEventListener('input', function() {
             const nameError = document.getElementById('nameError');
             if (this.value.trim().length >= 2) {
                 nameError.textContent = '';
@@ -175,7 +134,7 @@
             if (this.value.trim().length >= 10) {
                 messageError.textContent = '';
             }
-        });
+        });*/
 
         // Skill tags hover effect
         document.querySelectorAll('.skill-tag').forEach(tag => {
@@ -199,10 +158,11 @@
             });
         });
 
-        // Add typing effect to hero text
-        function typeWriter(element, text, speed = 50) {
+        // Add typing effect to welcome-section text
+        function typeWriter(element, text, speed = 100) {
             let i = 0;
             element.innerHTML = '';
+            element.style.opacity = '1';
             
             function type() {
                 if (i < text.length) {
@@ -218,9 +178,10 @@
         window.addEventListener('load', () => {
             const heroTitle = document.querySelector('.welcome-section h1');
             const originalText = heroTitle.textContent;
-            setTimeout(() => {
-                typeWriter(heroTitle, originalText, 100);
-            }, 500);
+            
+                heroTitle.classList.add('typing');
+                typeWriter(heroTitle, originalText, 80);
+           
         });
 
         // Add scroll progress indicator
