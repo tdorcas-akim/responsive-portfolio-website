@@ -1,6 +1,6 @@
        // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.main-navigation');
 
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
@@ -47,7 +47,7 @@
 
         // Navbar background change on scroll
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.querySelector('.main-header');
             if (window.scrollY > 100) {
                 navbar.style.background = 'rgba(255, 255, 255, 0.98)';
                 navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
@@ -71,9 +71,9 @@
                 learned: 'This project helped me understand the fundamentals of responsive web design and the importance of semantic HTML structure.'
             },
             project2: {
-                title: 'Simple Calculator',
-                description: 'A functional web-based calculator that performs basic arithmetic operations. Features a clean, intuitive interface with keyboard support for enhanced user experience.',
-                features: ['Basic arithmetic operations', 'Keyboard input support', 'Clear and delete functions', 'Responsive button layout', 'Error handling'],
+                title: 'Currency Converter',
+                description: 'A functional web-based currency converter that performs basic currency conversion operations. Features a clean, intuitive interface with keyboard support for enhanced user experience.',
+                features: ['Basic currency conversion', 'Keyboard input support', 'Clear and delete functions', 'Responsive button layout', 'Error handling'],
                 challenges: 'Handling edge cases like division by zero and maintaining accurate floating-point calculations required careful consideration.',
                 learned: 'This project taught me about event handling, DOM manipulation, and the importance of user input validation.'
             },
@@ -113,7 +113,7 @@
             }
         });
 
-        // Form validation
+        /*// Form validation
         const contactForm = document.getElementById('contactForm');
         
         contactForm.addEventListener('submit', (e) => {
@@ -152,7 +152,7 @@
                 alert('Thank you for your message! I will get back to you soon.');
                 contactForm.reset();
             }
-        });
+        });*/
 
         // Add input event listeners for real-time validation
         document.getElementById('name').addEventListener('input', function() {
@@ -216,7 +216,7 @@
 
         // Initialize typing effect when page loads
         window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
+            const heroTitle = document.querySelector('.welcome-section h1');
             const originalText = heroTitle.textContent;
             setTimeout(() => {
                 typeWriter(heroTitle, originalText, 100);

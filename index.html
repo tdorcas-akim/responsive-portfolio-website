@@ -7,130 +7,151 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
+   <!--navigation bar--> 
+    <nav class="main-header">
+        <div class="header-wrapper">
             <!-- <div class="logo">Portfolio</div> -->
-            <ul class="nav-menu">
+             <ul class="main-navigation">
                 <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <!--hamburger menu for mobile-->
+            <div class="mobile-menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
     </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi there, Tabitha Dorcas Akimana</h1>
-            <p>Passionate Software Engineering student learning to build amazing web experiences</p>
-            <a href="#about" class="btn">Get to Know Me</a>
+    <!--home/hero section-->
+    <section id="home" class="welcome-section">
+        <div class="hero-text-container">
+            <h1>Hi there, I'm Tabitha Dorcas Akimana</h1>
+             <p>Passionate Software Engineering student learning to build amazing web experiences </p>
+            <a href="#about" class="know-me-btn nav-link">Get to Know Me</a>
         </div>
     </section>
-
+ <!--about section-->
     <section id="about" class="section about fade-in">
         <div class="section-container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="big-title">About Me</h2>
+                        <img src="Image\Website_Pic.jpg" alt="Profile pic">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text-area">
                     <h3>Software Engineering Student</h3>
-                    <p>I'm a passionate first-year Computer Science student with a strong curiosity for technology and problem-solving. Currently pursuing my degree with an expected graduation in 2028, I'm eager to learn and grow in the field of software development.</p>
-                    <p>My journey in programming has just begun, but I'm already fascinated by the endless possibilities that code can unlock. I believe in continuous learning and am always excited to take on new challenges that push me to expand my skills.</p>
-                    <p>When I'm not coding, you can find me exploring new technologies, participating in online coding communities, or working on personal projects that help me apply what I've learned.</p>
+                    <p>I'm a first-year student in Software Engineering who is curious about technology 
+                       and problem-solving. A student right now and projected to graduate in 2028, I am 
+                       excited to continue learning and developing in the field of software development.</p>
+                    <p>I have only started my journey in programming, but I am already impressed by the 
+                       possibilities unleashed through code.</p>
+                    <p>In my opinion, I believe that learning never stops, and I am eager to accept every new challenge that would encourage me to 
+                       develop my skills.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    <!--skills section -->
     <section id="skills" class="section skills fade-in">
         <div class="section-container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="big-title">Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Communication</span>
-                        <span class="skill-tag">Active Listening</span>
-                        <span class="skill-tag">Problem-Solving</span>
-                        <span class="skill-tag">Critical Thinking</span>
-                        <span class="skill-tag">Empathy</span>
-                        <span class="skill-tag">Curiosity</span>
+                        <span class="indiv-skill">Communication</span>
+                        <span class="indiv-skill">Active Listening</span>
+                        <span class="indiv-skill">Problem-Solving</span>
+                        <span class="indiv-skill">Critical Thinking</span>
+                        <span class="indiv-skill">Empathy</span>
+                        <span class="indiv-skill">Curiosity</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Technical Skills</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript (Learning)</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Python</span>
+                        <span class="indiv-skill">Python</span>
+                        <span class="indiv-skill">Git</span>
+                        <span class="indiv-skill">HTML</span>
+                        <span class="indiv-skill">CSS</span>
+                        <span class="indiv-skill">JavaScript (Learning)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+<!--education section-->
+    <section id="education" class="section education fade-in">
+        <div class="timeline">
+            <h2 class="big-title">Education</h2>
+            <div class="journey-item">
+            <div class="journey-date">2016 - 2022</div>
+            <div class="journey-title">High School Diploma</div>
+            <div class="journey-company">Ecole Independante</div>
+        </div>
 
-    <section id="education" class="section timeline fade-in">
-        <div class="section-container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline-item">
-                <div class="timeline-date">2024 - 2028</div>
-                <div class="timeline-title">Bachelor's Degree in Software Engineering</div>
-                <div class="timeline-company">African Leadership University</div>
-                <p>Currently pursuing a comprehensive Computer Science degree focusing on programming fundamentals, data structures, algorithms, and software development principles. Expected graduation in 2028.</p>
+            <div class="journey-item">
+                <div class="journey-date">2024 - 2028</div>
+                <div class="journey-title">Bachelor's Degree in Software Engineering</div>
+                <div class="journey-company">African Leadership University</div>
+                <!-- <p>Currently pursuing a comprehensive Software Engineering degree focusing on programming fundamentals, data structures, and software development principles. Expected graduation in 2028.</p> -->
             </div>
         </div>
-    </section>
 
-    <section class="section timeline fade-in">
+    </section></body>
+<!--experience section -->
+    <section id="experience" class="section experience fade-in">
         <div class="section-container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline-item">
-                <div class="timeline-date">2024 - Present</div>
-                <div class="timeline-title">Self-Directed Learning</div>
-                <div class="timeline-company">Personal Development</div>
+            <h2 class="big-title">Experience</h2>
+            <div class="journey-item">
+                <div class="journey-date">2024 - Present</div>
+                <div class="journey-title">Self-Directed Learning</div>
+                <div class="journey-company">Personal Development</div>
                 <p>Actively learning web development through online resources, tutorials, and hands-on projects. Building foundational skills in HTML, CSS, JavaScript, and version control with Git.</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2024</div>
-                <div class="timeline-title">Academic Projects</div>
-                <div class="timeline-company">University Coursework</div>
-                <p>Completed various programming assignments and projects as part of university curriculum, including basic Python applications and algorithm implementations.</p>
+            <div class="journey-item">
+                <div class="journey-date">2024</div>
+                <div class="journey-title">Academic Projects</div>
+                <div class="journey-company">University Coursework</div>
+                <p>Completed various programming assignments and projects as part of university curriculum, including basic Python applications.</p>
             </div>
         </div>
     </section>
+
+<!--projects section-->
 
     <section id="projects" class="section projects fade-in">
         <div class="section-container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="big-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card" onclick="openModal('project1')">
-                    <h3 class="project-title">Personal Portfolio</h3>
-                    <p class="project-description">A responsive personal portfolio website showcasing my skills, education, and projects. Built with pure HTML, CSS, and JavaScript without any frameworks.</p>
+                    <h3 class="project-name">Personal Portfolio</h3>
+                    <p class="project-description">This responsive personal portfolio website showcasing my skills, education, and projects.</p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                         <span class="tech-tag">JavaScript</span>
                     </div>
                 </div>
+                <!--second project-->
                 <div class="project-card" onclick="openModal('project2')">
-                    <h3 class="project-title">Simple Calculator</h3>
-                    <p class="project-description">A functional calculator web application with a clean interface. Supports basic arithmetic operations and keyboard input for enhanced user experience.</p>
+                    <h3 class="project-title">Currency Converter</h3>
+                    <p class="project-description">A functional currency converter with a clean interface and user-friendly design.</p>
                     <div class="project-tech">
+                        <span class="tech-tag"><a href="https://github.com/tdorcas-akim/Currency-Converter_Homework_C3">Github</a></span>
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                         <span class="tech-tag">JavaScript</span>
                     </div>
                 </div>
+                <!--third project-->
                 <div class="project-card" onclick="openModal('project3')">
                     <h3 class="project-title">Python Learning Scripts</h3>
-                    <p class="project-description">Collection of Python scripts created while learning programming fundamentals, including data manipulation, file operations, and basic algorithms.</p>
+                    <p class="project-description">Collection of Python scripts created while learning programming fundamentals.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Git</span>
@@ -139,22 +160,22 @@
             </div>
         </div>
     </section>
-
+<!--contact section-->
     <section id="contact" class="section contact fade-in">
         <div class="section-container">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="big-title">Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-info">
                      <p>I'm always open to new opportunities and collaborations. The best way to reach me is by email.</p>
-                    <div class="contact-item">
-                        <div class="contact-icon"></div>
+                    <div class="contact-detail">
+                        <div class="contact-symbol"></div>
                         <div>
                             <h4>Email</h4>
-                            <p>t.akimana@alustudent.com</p>
+                            <p><a href="mailto:t.akimana@alustudent.com">t.akimana@alustudent.com</a></p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"></div>
+                    <div class="contact-detail">
+                        <div class="contact-symbol"></div>
                         <div>
                             <h4>Location</h4>
                             <p>Kigali, Rwanda</p>
@@ -164,14 +185,14 @@
         </div>
     </section>
 
-    <!-- Modal -->
+    <!--popup modal for projects details-->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <div id="modalContent"></div>
         </div>
     </div>
-
+<!--footer-->
     <footer class="footer">
         <p>&copy; 2025 My Portfolio.</p>
     </footer>
