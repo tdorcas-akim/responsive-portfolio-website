@@ -20,17 +20,15 @@ A modern, responsive personal portfolio website built with HTML, CSS, and JavaSc
 
 ## Getting Started
 
-1. **Clone or Download the Repository**
+Here's the Deployed link:
 
-   ```
-<<<<<<< HEAD
+https://tdorcas-akim.github.io/responsive-portfolio-website/
+
+1. Clone or Download the Repository
+
    git clone https://github.com/tdorcas-akim/responsive-portfolio-website.git
-=======
-   git clone https://github.com/tdorcas-akim/responsive-portfolio-website/.git
->>>>>>> 090362483e5ff78b74bb0ba35e7b41781eb2b065
-   ```
 
-2. **Open `index.html` in your browser**
+2. Open `index.html` in your browser
 
    No build tools or dependencies required.
 
